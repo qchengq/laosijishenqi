@@ -19,7 +19,7 @@ ui.layout(
             </appbar>
             <viewpager id="viewpager">
             <frame>
-                <img src={"https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/5.jpeg" } scaleType="centerCrop" alpha="0.55" />
+                <img src={"https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/5.jpeg" } scaleType="centerCrop" alpha="0.55" />
                     <vertical>
                         <vertical gravity="center" layout_weight="1">
                                 <horizontal gravity="center_vertical">
@@ -48,7 +48,7 @@ ui.layout(
 
                 </frame>
                     <frame>
-                    <img src={"https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/6.jpeg" } scaleType="centerCrop" alpha="0.55" />
+                    <img src={"https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/6.jpeg" } scaleType="centerCrop" alpha="0.55" />
                     <ScrollView>
                         <vertical id="lsj" gravity="center">
                             <horizontal  gravity="center_vertical" padding="5 5" >
