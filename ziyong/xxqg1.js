@@ -183,7 +183,7 @@ fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
 fInfo("检测题库更新");
-const update_info = get_tiku_by_http("https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/info.json"); 
+const update_info = get_tiku_by_http("https://raw.githubusercontent.com/qchengq/laosijishenqi/main/info.json"); 
 fInfo("正在加载对战题库......请稍等\n题库版本:"+update_info["tiku_version"]);
 fInfo("如果不动就是正在下载，多等会");
 var tiku = [];
@@ -1952,7 +1952,7 @@ function get_ans_by_tiku(que_txt) {
 // 获取直链json
 function get_tiku_by_http(link) {
   // 通过gitee的原始数据保存题库
-  if (!link) {link = "https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/tiku_json.txt"} 
+  if (!link) {link = "https://raw.githubusercontent.com/qchengq/laosijishenqi/main/tiku_json.txt"} 
   let req = http.get(link, {
     headers: {
       "Accept-Language": "zh-cn,zh;q=0.5",
