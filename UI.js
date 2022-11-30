@@ -19,7 +19,7 @@ ui.layout(
             </appbar>
             <viewpager id="viewpager">
                                 <frame>
-                <img src={"https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/5.jpeg" } scaleType="centerCrop" alpha="0.55" />
+                <img src={"https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/5.jpeg" } scaleType="centerCrop" alpha="0.55" />
                     <vertical>
                         <vertical gravity="center" layout_weight="1">
                                 <horizontal gravity="center_vertical">
@@ -56,7 +56,7 @@ ui.layout(
 
                 </frame>
                     <frame>
-                    <img src={"https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/6.jpeg" } scaleType="centerCrop" alpha="0.55" />
+                    <img src={"https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/6.jpeg" } scaleType="centerCrop" alpha="0.55" />
                     <ScrollView>
                         <vertical id="lsj" gravity="center">
                             <horizontal  gravity="center_vertical" padding="5 5" >
@@ -201,7 +201,7 @@ ui.start.click(function () {
     }
     threads.start(function () {
         toastLog("脚本加载中，请稍后...")
-        var link = "https://raw.githubusercontent.com/qchengq/laosijishenqi/main/xxqg.js"
+        var link = "https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/xxqg.js"
  
         let resc = http.get(link, {
                 headers: {   //通过headers修复文件过大网络无法下载
