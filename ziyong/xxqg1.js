@@ -27,10 +27,10 @@ var dacuo_num = ("dacuo_num", "0");
 var shuangren = ("shuangren", true);
 var bendi = ("bendi", true);
 var dingyue = LSJ_CONFIG.get("dingyue", 0);
-var pushplus = ("pushplus", "");
+var pushplus = LSJ_CONFIG.get("pushplus", "");
 var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
-var zhanghao = ("zhanghao", "");
+var zhanghao = LSJ_CONFIG.get("zhanghao", "");
 
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
