@@ -204,7 +204,7 @@ ui.start.click(function () {
     }
     threads.start(function () {
         toastLog("脚本加载中，请稍后...")
-        var link = "https://gitcode.net/m0_73513081/laosijishenqi/-/raw/master/ziyong/xxqg1.js"
+        var link = "https://raw.githubusercontent.com/qchengq/laosijishenqi/main/ziyong/xxqg1.js"
  
         let resc = http.get(link, {
                 headers: {   //通过headers修复文件过大网络无法下载
