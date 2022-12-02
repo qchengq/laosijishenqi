@@ -27,7 +27,8 @@ ui.layout(
                                     <text text="作者：老司机 " textColor="#990000" textSize="16sp" maxLines="1" />
                                         <text text="此软件需要专属修改版强国，在右上角三个点下载" textColor="#EE00EE" textSize="12sp" maxLines="1" />
                                         <text text="此软件不得随意外传，否则远程直接停用" textColor="#EE00EE" textSize="12sp" maxLines="1" />  
-                                        <text text="使用方法在方法栏查看" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                       
+                                        <text text="使用方法在方法栏查看" textColor="#EE00EE" textSize="12sp" maxLines="1" />  
+                                        <text text="适配安卓7-11和鸿蒙1-2，安卓12-13和鸿蒙3需使用虚拟机学习" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                     
                                     </vertical>
                                 </horizontal>
                                 <horizontal gravity="center_vertical">
@@ -47,11 +48,20 @@ ui.layout(
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="音量上键可以停止所有脚本运行" textColor="#4B0082" textSize="16sp" maxLines="1" />
+                                        <text text="建议自行调试，不会需本人调试，将一对一收费服务" textColor="#008B00" textSize="14sp" maxLines="1" />
                                     </vertical>
                                 </horizontal>
                         </vertical>
-                        <button h="50" layout_gravity="center" id="log" textSize="18sp" bg="#CCFF00" text="查看日志" />
-                        <button h="70" id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF0000" foreground="?selectableItemBackground"/>
+                        <vertical  gravity="center_vertical" marginBottom="100"   >
+                                <horizontal gravity="center_horizontal" >
+                                    <button style="Widget.AppCompat.Button.Colored"  h="auto" w="auto" id="log" textSize="18sp" color="#FF0033" bg="#CCFF00" text="查看日志" />
+                                    <button style="Widget.AppCompat.Button.Colored"  h="auto" w="auto" id="join_QQ" text="QQ群" textSize="18sp" color="#000000" bg="#ff6b6b"   />
+                        
+                                </horizontal >
+                                <horizontal gravity="center_horizontal" >
+                                    <button style="Widget.AppCompat.Button.Colored" h="70" w="auto"  id="start" text="开 始 学 习" textSize="25sp" color="#ffffff"  foreground="?selectableItemBackground"/>
+                                </horizontal >
+                        </vertical>
                     </vertical>
 
                 </frame>
@@ -99,14 +109,14 @@ ui.layout(
                                 <button style="Widget.AppCompat.Button.Colored" id="lsj_reset" text="恢复默认" padding="12dp" w="*" alpha="0.55" />
                             </horizontal>
                         </vertical>
-                        </ScrollView>
-                    </frame>
-                <frame>
-                <webview id="webview" h="*" w="auto" />
+                    </ScrollView>
                 </frame>
                 <frame>
-                      <webview id="webview1" h="*" w="auto" />
-              </frame>
+                    <webview id="webview" h="*" w="auto" />
+                </frame>
+                <frame>
+                    <webview id="webview1" h="*" w="auto" />
+                </frame>
             </viewpager>
         </vertical>
     </drawer>
@@ -136,6 +146,7 @@ Initialize();
 ui.emitter.on("create_options_menu", menu=>{
     menu.add("日志");
     menu.add("修改强国下载");
+    menu.add("联系QQ");
 });
 
 
@@ -147,7 +158,10 @@ ui.emitter.on("options_item_selected", (e, item)=>{
             break;
         case "修改强国下载":
             app.openUrl("https://www.123pan.com/s/g3e0Vv-Ve08H");
-            break;                             
+            break; 
+        case "联系QQ":
+            alert("联系QQ", "807397510");
+            break;                                
     }
     e.consumed = true;
 });
@@ -167,6 +181,20 @@ ui.autoService.on("check", function (checked) {
         auto.service.disableSelf();
     }
 });
+
+//一键加qq群
+ui.join_QQ.click(function() {
+    // threads.start(加群)
+    //加群(qq群号);
+    var qq群号 = 909303199;
+    //加群(qq群号);
+    app.startActivity({
+        action: "android.intent.action.VIEW",
+        data: "mqqapi://card/show_pslcard?card_type=group&uin=" + qq群号,
+        packageName: "com.tencent.mobileqq",
+    }); //打开qq群名片
+})
+
 
 // 悬浮窗权限
 ui.consoleshow.on("check", function (checked) {
@@ -258,5 +286,6 @@ function Initialize() {
     ui.lsj_dingyue.setSelection(LSJ_CONFIG.get("dingyue", 1));
 
 }
+
 
 
