@@ -311,7 +311,7 @@ ui.start.click(function () {
     }
     threads.start(function () {
         let url = 'https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
-        execution = engines.execScript("强国助手", http.get(url).body.string());
+        execution = engines.execScript("老司机助手", http.get(url).body.string());
     });
 });
 
