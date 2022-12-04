@@ -5,7 +5,7 @@
 */
 
 // =====================参数设置====================
-var query_mode = WXTZ_CONFIG.get("wxtz", 0); // 服务器答案查找模式，二选一："Server" or "Json" 
+var query_mode = "Server"; // 服务器答案查找模式，二选一："Server" or "Json" 
 var 挑战答题索引 = "000001000000000000002010" // 挑战答题部分ui相对根节点的嵌套位置索引
 var host = "https://mondayfirst.top/tiku/" // 网络题库URL路径
 var tk_path = "题库_排序版.json" // 本地题库路径
