@@ -151,7 +151,7 @@ ui.layout(
                                         <text text="开启无限挑战后需手动进入挑战答题界面" textColor="#EE00EE" textSize="12sp" maxLines="1" />  
                                         <text text="进入答题界面后会自动进行答题模式" textColor="#EE00EE" textSize="12sp" maxLines="1" />  
                                         <text text="题库问题并不能保证答全部答完，错误后会自动重新开始" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                     
-                                        <text text="Server为网络题库模式，Json为本地题库模式" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                    
+                                        <text text="此功能无悬浮窗，不可重复点击开始学习，点一次就手动进入" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                   
                                     </vertical>
                                 </horizontal>
 {/*                             <horizontal  gravity="center_vertical" padding="5 5" >
