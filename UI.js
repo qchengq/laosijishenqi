@@ -160,7 +160,7 @@ ui.layout(
                                         <text text="此功能无悬浮窗，不可重复点击开始学习，点一次就手动进入" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                                                  
                                     </vertical>
                                 </horizontal>
-{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
+                            <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="挑战模式" />
                                     <spinner id="lsj_wxtz" marginLeft="4" marginRight="6" entries="Server|Json" />
@@ -171,7 +171,7 @@ ui.layout(
                             </horizontal>
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="wxtz_reset" text="恢复默认" padding="12dp" w="*" />
-                            </horizontal> */}
+                            </horizontal>
                         </vertical>
                     </frame>
             </viewpager>
@@ -351,7 +351,7 @@ ui.lsj_reset.click(function () {
     toastLog("老司机神器配置恢复默认！");
 });
 
-/* // 保存无限挑战脚本设置
+// 保存无限挑战脚本设置
 ui.wxtz_save.click(function () {
     WXTZ_CONFIG.put("wxtz", ui.lsj_wxtz.getSelectedItemPosition());
 
@@ -365,7 +365,7 @@ ui.wxtz_reset.click(function () {
 
     toastLog("无限挑战配置恢复默认！");
 });
- */
+
 
 
 // 读取脚本设置
@@ -381,7 +381,7 @@ function Initialize() {
     ui.lsjauto_slide_verify.setText(LSJAUTO_CONFIG.get("slide_verify", "300"));
     ui.lsjauto_ocr_maxtime.setText(LSJAUTO_CONFIG.get("ocr_maxtime", "1500"));
 
-    // ui.lsj_wxtz.setSelection(WXTZ_CONFIG.get("wxtz", 0));
+    ui.lsj_wxtz.setSelection(WXTZ_CONFIG.get("wxtz", 0));
 }
 
 
