@@ -291,6 +291,7 @@ Initialize();
 ui.emitter.on("create_options_menu", menu=>{
     menu.add("日志");
     menu.add("修改强国下载");
+    menu.add("百度AK,SK获取");
     menu.add("联系QQ");
 });
 
@@ -302,6 +303,9 @@ ui.emitter.on("options_item_selected", (e, item)=>{
             break;
         case "修改强国下载":
             app.openUrl("https://www.123pan.com/s/g3e0Vv-Ve08H");
+            break;
+        case "百度AK,SK获取":
+            app.openUrl("https://login.bce.baidu.com/");
             break; 
         case "联系QQ":
             alert("联系QQ", "807397510");
