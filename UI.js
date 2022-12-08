@@ -69,6 +69,8 @@ ui.layout(
                 </frame>
                 <frame>
                     <img src={"https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/6.jpeg" } scaleType="centerCrop" alpha="0.55" />
+                    <vertical>
+                        <ScrollView>
                         <vertical id="lsj" gravity="center_vertical" marginBottom="10" >
                             <horizontal gravity="center_vertical">
                                     <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">                                    
@@ -80,33 +82,36 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="1 1" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="0.5">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="滑动验证的滑动时间(ms)" />
-                                    <text w="auto" textColor="#004b50" textSize="12sp" text="空着或0不开启自动滑动验证，滑动分3段" />
+                                    <text w="auto" textColor="#EE00EE" textSize="12sp" text="空着或0不开启自动滑动验证，滑动分3段" />
                                 </vertical> 
                                 <input id="lsj_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="1 1" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="0.5">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="每周答题" />
-                                    <spinner id="lsj_meizhou" marginLeft="4" marginRight="6" textColor="#FF6600" entries="最近一次已作答开始倒序|正序答题|不做" />
-                                </vertical> 
+                                    <text w="auto" textColor="#EE00EE" textSize="12sp" text="因每周不再增加，没答完的选择正序答题，答完的选择不做" />                                                                        
+                                    <spinner id="lsj_meizhou" marginLeft="4" marginRight="6" textColor="#FF0033" entries="最近一次已作答开始倒序|正序答题|不做" />                                 
+                                </vertical>
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="1 1" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="0.5">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="专项答题" />
-                                    <spinner id="lsj_zhuanxiang" marginLeft="4" marginRight="6" textColor="#FF6600" entries="最近一次已作答开始倒序|正序答题|不做" />
-                                </vertical> 
+                                    <text w="auto" textColor="#EE00EE" textSize="12sp" text="以前的没答完选择正序，答完的选择倒序，有题目就做每题目就不做，加快时间" />                                   
+                                    <spinner id="lsj_zhuanxiang" marginLeft="4" marginRight="6" textColor="#FF0033" entries="最近一次已作答开始倒序|正序答题|不做" />                                 
+                                </vertical>
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="1 1" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="0.5">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="ocr识别跳过阈值(ms)" />
-                                    <text w="auto" textColor="#004b50" textSize="12sp" text="空着或0默认5000，超过此时间会跳过多人对战" />
+                                    <text w="auto" textColor="#EE00EE" textSize="12sp" text="空着或0默认5000，超过此时间会跳过多人对战" />
                                 </vertical> 
                                 <input id="lsj_ocr_maxtime" marginLeft="4" marginRight="6" text="1500" textSize="13sp"  inputType="number" />
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="1 1" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="0.5">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="订阅" />
-                                    <spinner id="lsj_dingyue" marginLeft="4" marginRight="6" textColor="#FF6600" entries="不做|正序订阅|只订阅年度上新" />
+                                    <text w="auto" textColor="#EE00EE" textSize="12sp" text="订阅没做完就选择正序，做完就选择年度上新" />                                    
+                                    <spinner id="lsj_dingyue" marginLeft="4" marginRight="6" textColor="#FF0033" entries="不做|正序订阅|只订阅年度上新" />                                
                                 </vertical> 
                             </horizontal>
                             <horizontal  >
@@ -116,6 +121,10 @@ ui.layout(
                                 <button style="Widget.AppCompat.Button.Colored" id="lsj_reset" text="恢复默认" padding="12dp" w="*" />
                             </horizontal>
                         </vertical>
+                        </ScrollView>
+                        </vertical>
+                        <vertical>
+                        <ScrollView>
                         <vertical id="lsjauto" gravity="center">
                             <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -141,6 +150,7 @@ ui.layout(
                                     <text w="auto" textColor="#004b50" textSize="12sp" text="建议按照平时正常的ocr识别时间设置" />
                                 </vertical> 
                                 <input id="lsjauto_ocr_maxtime" marginLeft="4" marginRight="6" text="1500" textSize="13sp"  inputType="number" />
+                                
                             </horizontal>
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="lsjauto_save" text="保存配置" padding="12dp" w="*" />
@@ -149,6 +159,10 @@ ui.layout(
                                 <button style="Widget.AppCompat.Button.Colored" id="lsjauto_reset" text="恢复默认" padding="12dp" w="*" />
                             </horizontal>
                         </vertical>
+                        </ScrollView>
+                        </vertical>
+                        <vertical>
+                        <ScrollView>
                         <vertical id="wxtz" gravity="top">
                             <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -160,11 +174,12 @@ ui.layout(
                                         <text text="Server为网络题库模式，json为本地题库模式" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                                                 
                                     </vertical>
                             </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
-                            <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#222222" textSize="15sp" text="是否启动网络模式" />
-                                </vertical>
-                                <checkbox id="wxtz_tkms" marginLeft="4" marginRight="6" checked="true" />
+                            <horizontal  gravity="center_vertical" padding="1 1" >
+                                <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="0.5">
+                                    <text w="auto" textColor="#FFFF00" textSize="15sp" text="题库模式" />
+                                    <text w="auto" textColor="#EE00EE" textSize="12sp" text="Server为网络题库模式，json为本地题库模式" />                                    
+                                    <spinner  marginLeft="4" marginRight="6" textColor="#FF0033" entries="Server|json" />                                
+                                </vertical> 
                             </horizontal>
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="wxtz_save" text="保存配置" padding="12dp" w="*" />
@@ -173,6 +188,9 @@ ui.layout(
                                 <button style="Widget.AppCompat.Button.Colored" id="wxtz_reset" text="恢复默认" padding="12dp" w="*" />
                             </horizontal>
                         </vertical>
+                        </ScrollView>
+                        </vertical>
+                        <vertical>
                         <ScrollView>
                         <vertical id="autoxuexi" gravity="top">
                             <horizontal gravity="center_vertical">
@@ -198,8 +216,8 @@ ui.layout(
                                     <text text="之前的每周答题是否全部完成" textColor="#EE00EE" textSize="12sp" maxLines="1" />   
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="如果完成就不需要浪费时间向下搜索" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <spinner id="autoxuexi_mzdt" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />
-                                </vertical> 
+                                </vertical>   
+                                <spinner id="autoxuexi_mzdt" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />    
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
@@ -207,46 +225,46 @@ ui.layout(
                                     <text text="之前的专项答题是否全部完成" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="如果完成就不需要浪费时间向下搜索" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <spinner id="autoxuexi_zxdt" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />
-                                </vertical> 
+                                </vertical>    
+                                    <spinner id="autoxuexi_zxdt" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                                 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="订阅" />
                                     <text text="是否完成订阅模块" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <spinner id="autoxuexi_dyue" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />
-                                </vertical> 
+                                </vertical>    
+                                    <spinner id="autoxuexi_dyue" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                            
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="发表言论" />
                                     <text text="是否完成发表言论模块" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <spinner id="autoxuexi_fbyl" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />
-                                </vertical> 
+                                </vertical>    
+                                    <spinner id="autoxuexi_fbyl" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                                 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="百度AK" />
-                                    <text text="请在双引号里填写百度AK，如何获取请看右上角三个点" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <input id="autoxuexi_bdak" text="" textColor="#FF6600" textSize="13sp" />
-                                </vertical> 
+                                    <text text="填写百度AK，如何获取请看右上角三个点" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                   
+                                    <input id="autoxuexi_bdak" text="" textColor="#FF6600" textSize="13sp" />                                 
+                                </vertical>  
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="百度SK" />
-                                    <text text="请在双引号里填写百度SK，如何获取请看右上角三个点" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <input id="autoxuexi_bdsk" text="" textColor="#FF6600" textSize="13sp" />
-                                </vertical> 
+                                    <text text="填写百度SK，如何获取请看右上角三个点" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                    
+                                    <input id="autoxuexi_bdsk" text="" textColor="#FF6600" textSize="13sp" />                                
+                                </vertical>
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="微信推送" />
                                     <text text="选填，是否要使用微信消息推送功能" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <text text="公众号关注pushplus获取token" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
-                                    <input id="autoxuexi_wxts" text="" textColor="#FF6600" textSize="13sp" />
-                                </vertical> 
+                                    <text text="公众号关注pushplus获取token" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                                                          
+                                    <input id="autoxuexi_wxts" text="" textColor="#FF6600" textSize="13sp" />                                
+                                </vertical>
                             </horizontal>
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="autoxuexi_save" text="保存配置" padding="12dp" w="*" />
@@ -256,6 +274,7 @@ ui.layout(
                             </horizontal>
                         </vertical>
                         </ScrollView>
+                        </vertical>
                 </frame>
             </viewpager>
         </vertical>
