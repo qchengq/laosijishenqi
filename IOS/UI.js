@@ -257,7 +257,7 @@ ui.lsj_reset.click(function () {
 
 // 读取脚本设置
 function Initialize() {
-    ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
+    //ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
 
     ui.lsj_slide_verify.setText(LSJ_CONFIG.get("slide_verify", "300"));
     ui.lsj_meizhou.setSelection(LSJ_CONFIG.get("meizhou", 1));
