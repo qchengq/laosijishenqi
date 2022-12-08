@@ -20,7 +20,7 @@ ui.layout(
             <viewpager id="viewpager">
             <frame>
                 <img src={"https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/5.jpeg" } scaleType="centerCrop" alpha="0.55" />
-                    <vertical>
+                  {/*  <vertical>  */}
                         <vertical gravity="center" layout_weight="1">
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
@@ -39,7 +39,7 @@ ui.layout(
                                         <text text="音量上键可以停止所有脚本运行" textColor="#4B0082" textSize="16sp" maxLines="1" />
                                     </vertical>
                                 </horizontal>
-                        </vertical>
+                     {/*   </vertical>  */}
                         <button h="70" id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF0000" foreground="?selectableItemBackground"/>
                     </vertical>
 
