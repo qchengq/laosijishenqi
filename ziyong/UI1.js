@@ -41,7 +41,7 @@ ui.layout(
                                 </horizontal>
                                <horizontal gravity="center_vertical">
                      {/*   </vertical>  */}
-                        <button h="70" id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF0000" foreground="?selectableItemBackground"/>
+                        <button h="70"  w="*"  id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF0000" foreground="?selectableItemBackground"/>
                               </horizontal>
                             </vertical>
 
