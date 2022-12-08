@@ -39,9 +39,11 @@ ui.layout(
                                         <text text="音量上键可以停止所有脚本运行" textColor="#4B0082" textSize="16sp" maxLines="1" />
                                     </vertical>
                                 </horizontal>
+                               <horizontal gravity="center_vertical">
                      {/*   </vertical>  */}
                         <button h="70" id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF0000" foreground="?selectableItemBackground"/>
-                    </vertical>
+                              </horizontal>
+                            </vertical>
 
                 </frame>
                     <frame>
