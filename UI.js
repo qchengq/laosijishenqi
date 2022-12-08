@@ -63,7 +63,7 @@ ui.layout(
                                     <button h="50" layout_gravity="center" id="update" textSize="18sp" />
                                     <button id="start" text="开 始 学 习" textSize="25sp" color="#FFFF00" bg="#CC3399" />
 
-                                </vertical>
+                                </vertical> 
                                 </horizontal>
                         </vertical>
                 </frame>
@@ -565,7 +565,7 @@ ui.menu.setDataSource([
         icon: "@drawable/ic_favorite_black_48dp"
     },
   {
-    title: "老司机神器下载地址",
+    title: "老司机神器安卓版下载地址",
     icon: "@drawable/ic_android_black_48dp"
 },
 {
@@ -583,6 +583,10 @@ ui.menu.setDataSource([
 {
     title: "强国2.33改下载地址",
     icon: "@drawable/ic_android_black_48dp"
+},
+{
+    title: "华为手机运动不显示步数替换下载",
+    icon: "@drawable/ic_settings_black_48dp"
 },
   {
       title: "退出软件",
@@ -616,7 +620,7 @@ ui.menu.on("item_click", item => {
 
 ui.menu.on("item_click", item => {
     switch(item.title){
-        case "老司机神器下载地址":
+        case "老司机神器安卓版下载地址":
             app.openUrl("https://65444.lanzoue.com/izh7A0hcpbwd");
             break;
     }
@@ -650,6 +654,14 @@ ui.menu.on("item_click", item => {
     switch(item.title){
         case "强国2.33改下载地址":
             app.openUrl("https://www.123pan.com/s/g3e0Vv-Yq08H");
+            break;
+    }
+})
+
+ui.menu.on("item_click", item => {
+    switch(item.title){
+        case "华为手机运动不显示步数替换下载":
+            app.openUrl("https://www.123pan.com/s/g3e0Vv-Q608H");
             break;
     }
 })
