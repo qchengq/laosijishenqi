@@ -161,10 +161,10 @@ ui.layout(
                                     </vertical>
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
-                                <vertical padding="10 8" h="auto" w="0" layout_weight="1">
-                                    <text w="auto" textColor="#FFFF00" textSize="15sp" text="挑战模式" />
-                                    <spinner id="lsj_wxtz" marginLeft="4" marginRight="6" textColor="#FF6600" entries="Server|Json" />
-                                </vertical>                                
+                            <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#222222" textSize="15sp" text="是否启动网络模式" />
+                                </vertical>
+                                <checkbox id="wxtz_tkms" marginLeft="4" marginRight="6" checked="true" />
                             </horizontal>
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="wxtz_save" text="保存配置" padding="12dp" w="*" />
@@ -449,7 +449,7 @@ ui.lsjauto_reset.click(function () {
     toastLog("老司机神器配置恢复默认！");
 });
 
-// 保存无限挑战脚本设置
+/* // 保存无限挑战脚本设置
 ui.wxtz_save.click(function () {
     WXTZ_CONFIG.put("wxtz", ui.lsj_wxtz.getSelectedItemPosition());
 
@@ -462,7 +462,7 @@ ui.wxtz_reset.click(function () {
     ui.lsj_wxtz.setSelection(WXTZ_CONFIG.get("wxtz"));
 
     toastLog("无限挑战配置恢复默认！");
-});
+}); */
 
 // 保存自动学习脚本设置
 ui.autoxuexi_save.click(function () {
@@ -513,7 +513,7 @@ function Initialize() {
     ui.lsjauto_slide_verify.setText(LSJAUTO_CONFIG.get("slide_verify", "300"));
     ui.lsjauto_ocr_maxtime.setText(LSJAUTO_CONFIG.get("ocr_maxtime", "1500"));
 
-    ui.lsj_wxtz.setSelection(WXTZ_CONFIG.get("wxtz", 0));
+    // ui.lsj_wxtz.setSelection(WXTZ_CONFIG.get("wxtz", 0));
 
     ui.autoxuexi_shijian.setText(AUTOXUEXI_CONFIG.get("shijian", "1"));
     ui.autoxuexi_mzdt.setSelection(AUTOXUEXI_CONFIG.get("mzdt", 0));
