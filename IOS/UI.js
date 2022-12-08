@@ -325,7 +325,7 @@ ui.menu.on("item_click", item => {
 ui.menu.on("item_click", item => {
     switch(item.title){
         case "老司机神器苹果云手机版下载地址":
-            app.openUrl("https://65444.lanzoue.com/izh7A0hcpbwd");
+            app.openUrl("https://65444.lanzoue.com/i2PV40i4qf3c");
             break;
     }
 })
