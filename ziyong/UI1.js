@@ -6,15 +6,15 @@ importClass(java.io.File);
 importClass(java.io.FileOutputStream);
 importClass(android.graphics.Color);
 
-var color = "#FF4FB3FF";
+var color = "#FF4FB3";
 
-ui.statusBarColor("#FF4FB3FF")
+ui.statusBarColor("#FF4FB3")
 
 ui.layout(
     <drawer id="drawer">
         <vertical>
             <appbar>
-                <toolbar id="toolbar" bg="#ff4fb3ff" title="老司机神器"/>
+                <toolbar id="toolbar" bg="#ff4fb3" title="老司机神器"/>
                 <tabs id="tabs" bg="#ff4fb3ff"/>
             </appbar>
             <viewpager id="viewpager">
@@ -25,14 +25,12 @@ ui.layout(
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="无障碍服务" textColor="#4B0082" textSize="16sp" maxLines="1" />
-                                        <text text="请确保开启" textColor="#008B00" textSize="14sp" maxLines="1" />
                                     </vertical>
                                     <checkbox id="autoService" marginLeft="4" marginRight="6" checked="{{auto.service != null}}" />
                                 </horizontal>
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                         <text text="悬浮窗权限" textColor="#4B0082" textSize="16sp" maxLines="1" />
-                                        <text text="请确保开启" textColor="#008B00" textSize="14sp" maxLines="1" />
                                     </vertical>
                                     <checkbox id="consoleshow" marginLeft="4" marginRight="6" checked="{{floaty.checkPermission()}}" />
                                 </horizontal>
@@ -42,7 +40,6 @@ ui.layout(
                                     </vertical>
                                 </horizontal>
                         </vertical>
-                        <button h="50" layout_gravity="center" id="log" textSize="18sp" bg="#CCFF00" text="查看日志" />
                         <button h="70" id="start" text="开 始 学 习" textSize="25sp" color="#ffffff" bg="#FF0000" foreground="?selectableItemBackground"/>
                     </vertical>
 
@@ -54,28 +51,24 @@ ui.layout(
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="滑动验证的滑动时间(ms)" />
-                                    <text w="auto" textColor="#004b50" textSize="12sp" text="空着或0不开启自动滑动验证，滑动分3段" />
-                                    <text w="auto" textColor="#004b50" textSize="12sp" text="中间会折返一下，总时间是填的数值*3" />
                                 </vertical> 
                                 <input id="lsj_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="每周答题" />
-                                    <spinner id="lsj_meizhou" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
+                                    <spinner id="lsj_meizhou" marginLeft="4" marginRight="6" entries="倒序答题|正序答题|不做" />
                                 </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="专项答题" />
-                                    <spinner id="lsj_zhuanxiang" marginLeft="4" marginRight="6" entries="最近一次已作答开始倒序|正序答题|不做" />
+                                    <spinner id="lsj_zhuanxiang" marginLeft="4" marginRight="6" entries="倒序答题|正序答题|不做" />
                                 </vertical> 
                             </horizontal>
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="ocr识别跳过阈值(ms)" />
-                                    <text w="auto" textColor="#004b50" textSize="12sp" text="空着或0默认5000，超过此时间会跳过多人对战" />
-                                    <text w="auto" textColor="#004b50" textSize="12sp" text="建议按照平时正常的ocr识别时间设置" />
                                 </vertical> 
                                 <input id="lsj_ocr_maxtime" marginLeft="4" marginRight="6" text="1500" textSize="13sp"  inputType="number" />
                             </horizontal>
@@ -104,12 +97,6 @@ ui.layout(
                         </vertical>
                         </ScrollView>
                     </frame>
-{/*                 <frame>
-                <webview id="webview" h="*" w="auto" />
-                </frame>
-                <frame>
-                      <webview id="webview1" h="*" w="auto" />
-              </frame> */}
             </viewpager>
         </vertical>
     </drawer>
@@ -119,7 +106,7 @@ ui.layout(
 http.__okhttp__.setTimeout(10000);
 //标签名
 // 设置滑动页面的标题
-ui.viewpager.setTitles(["首页", "配置","方法","更新说明"]);
+ui.viewpager.setTitles(["首页", "配置","方法"]);
 // 让滑动页面和标签栏联动
 ui.tabs.setupWithViewPager(ui.viewpager);
 
@@ -188,12 +175,6 @@ ui.emitter.on("resume", function () {
     ui.autoService.checked = auto.service != null;
     ui.consoleshow.checked = floaty.checkPermission();
 });
-
-// 打开日志
-ui.log.click(function () {
-    app.startActivity("console");
-});
-
 
 // 下载并运行脚本
 ui.start.click(function () {
