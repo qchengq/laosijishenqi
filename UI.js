@@ -32,8 +32,8 @@ ui.layout(
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text text="作者：老司机 " textColor="#990000" textSize="16sp" maxLines="1" />
-                                        <text text="联系QQ：807397510,联系微信：xuexilaosiji" textColor="#EE00EE" textSize="12sp" maxLines="1" />
-                                        <text text="使用教程在左上角三横处，下载地址在右上角三个点" textColor="#EE00EE" textSize="12sp" maxLines="1" />    
+                                        <text text="此软件需使用修改版强国" textColor="#EE00EE" textSize="12sp" maxLines="1" />
+                                        <text text="使用教程和下载地址在左上角三横处" textColor="#EE00EE" textSize="12sp" maxLines="1" />    
                                         <text text="教程不看需本人配置的将开启收费" textColor="#EE00EE" textSize="12sp" maxLines="1" />
                                         <text text="本软件不适用安卓12-13和鸿蒙3，需要使用请用虚拟机开启" textColor="#EE00EE" textSize="12sp" maxLines="1" />                           
                                     </vertical>
@@ -292,7 +292,7 @@ ui.emitter.on("create_options_menu", menu=>{
     menu.add("日志");
     menu.add("修改强国下载");
     menu.add("百度AK,SK获取");
-    menu.add("联系QQ");
+    // menu.add("联系QQ");
 });
 
 // 监听选项菜单点击
@@ -307,9 +307,9 @@ ui.emitter.on("options_item_selected", (e, item)=>{
         case "百度AK,SK获取":
             app.openUrl("https://login.bce.baidu.com/");
             break;            
-        case "联系QQ":
+/*         case "联系QQ":
             alert("联系QQ", "807397510");
-            break;                                
+            break;   */                              
     }
     e.consumed = true;
 });
@@ -532,20 +532,24 @@ function Initialize() {
 ui.toolbar.setupWithDrawer(ui.drawer);
 
 ui.menu.setDataSource([
-  {
-      title: "学习教程",
-      icon: "@drawable/ic_android_black_48dp"
-  },
-  {
-      title: "更新日志",
-      icon: "@drawable/ic_settings_black_48dp"
-  },
-  {
-      title: "加入QQ群",
-      icon: "@drawable/ic_favorite_black_48dp"
-  },
+    {
+        title: "安卓手机学习教程",
+        icon: "@drawable/ic_android_black_48dp"
+    },
+    {
+        title: "苹果云手机学习教程",
+        icon: "@drawable/ic_settings_black_48dp"
+    },
+    {
+        title: "更新日志",
+        icon: "@drawable/ic_favorite_black_48dp"
+    },
   {
     title: "老司机神器下载地址",
+    icon: "@drawable/ic_android_black_48dp"
+},
+{
+    title: "老司机神器苹果云手机版下载地址",
     icon: "@drawable/ic_android_black_48dp"
 },
 {
@@ -568,8 +572,16 @@ ui.menu.setDataSource([
 
 ui.menu.on("item_click", item => {
     switch(item.title){
-        case "学习教程":
+        case "安卓手机学习教程":
             app.openUrl("https://share.weiyun.com/eYzxaBsB");
+            break;
+    }
+})
+
+ui.menu.on("item_click", item => {
+    switch(item.title){
+        case "苹果云手机学习教程学习教程":
+            app.openUrl("https://share.weiyun.com/4OMnhObg");
             break;
     }
 })
@@ -584,16 +596,16 @@ ui.menu.on("item_click", item => {
 
 ui.menu.on("item_click", item => {
     switch(item.title){
-        case "加入QQ群":
-            app.openUrl("https://jq.qq.com/?_wv=1027&k=6mrvR6im");
+        case "老司机神器下载地址":
+            app.openUrl("https://65444.lanzoue.com/izh7A0hcpbwd");
             break;
     }
 })
 
 ui.menu.on("item_click", item => {
     switch(item.title){
-        case "老司机神器下载地址":
-            app.openUrl("https://65444.lanzoue.com/izh7A0hcpbwd");
+        case "老司机神器苹果云手机版下载地址":
+            app.openUrl("https://65444.lanzoue.com/i2PV40i4qf3c");
             break;
     }
 })
