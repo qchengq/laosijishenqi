@@ -194,12 +194,6 @@ ui.emitter.on("resume", function () {
     ui.consoleshow.checked = floaty.checkPermission();
 });
 
-// 打开日志
-ui.log.click(function () {
-    app.startActivity("console");
-});
-
-
 // 下载并运行所选脚本
 ui.start.click(function () {
     threads.shutDownAll();
