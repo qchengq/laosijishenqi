@@ -251,7 +251,7 @@ ui.lsj_reset.click(function () {
 
 // 读取脚本设置
 function Initialize() {
-    //ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
+    // ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
 
     ui.lsj_slide_verify.setText(LSJ_CONFIG.get("slide_verify", "300"));
     ui.lsj_meizhou.setSelection(LSJ_CONFIG.get("meizhou", 1));
@@ -280,6 +280,10 @@ ui.menu.setDataSource([
       title: "更新日志",
       icon: "@drawable/ic_favorite_black_48dp"
   },
+  {
+    title: "老司机神器安卓版下载地址",
+    icon: "@drawable/ic_android_black_48dp"
+},
   {
     title: "老司机神器苹果云手机版下载地址",
     icon: "@drawable/ic_android_black_48dp"
@@ -318,6 +322,14 @@ ui.menu.on("item_click", item => {
     switch(item.title){
         case "更新日志":
             app.openUrl("https://share.weiyun.com/XBiFrHYj");
+            break;
+    }
+})
+
+ui.menu.on("item_click", item => {
+    switch(item.title){
+        case "老司机神器安卓版下载地址":
+            app.openUrl("https://65444.lanzoue.com/izh7A0hcpbwd");
             break;
     }
 })
