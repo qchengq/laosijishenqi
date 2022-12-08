@@ -557,7 +557,7 @@ ui.menu.setDataSource([
     icon: "@drawable/ic_favorite_black_48dp"
 },
 {
-    title: "强国2.23改下载地址",
+    title: "强国2.33改下载地址",
     icon: "@drawable/ic_android_black_48dp"
 },
   {
