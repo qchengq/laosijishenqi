@@ -418,6 +418,7 @@ ui.start.click(function () {
         return;
     }
     threads.start(function () {
+        toastLog("老司机神器脚本加载中，请稍后...")
         let url = 'https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/'+ui.script_chosen.getSelectedItemPosition()+'.js';
         execution = engines.execScript("老司机助手", http.get(url).body.string());
     });
