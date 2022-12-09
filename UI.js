@@ -35,8 +35,9 @@ ui.layout(
                                         <text text="此软件需使用修改版强国" textColor="#EE00EE" textSize="12sp" maxLines="1" />
                                         <text text="使用教程和下载地址在左上角三横处" textColor="#EE00EE" textSize="12sp" maxLines="1" />    
                                         <text text="教程不看需本人配置的将开启收费" textColor="#EE00EE" textSize="12sp" maxLines="1" />
-                                        <text text="本软件不适用安卓12-13和鸿蒙3，需要使用请用虚拟机开启" textColor="#EE00EE" textSize="12sp" maxLines="1" />                           
-                                    </vertical>
+                                        <text text="本软件不适用安卓12-13和鸿蒙3，需使用请用虚拟机或者云手机" textColor="#EE00EE" textSize="12sp" maxLines="1" />                           
+                                        <text text="有能力的加TG群https://t.me/lsj_sq" textColor="#EE00EE" textSize="12sp" maxLines="1" />
+                                     </vertical>
                                 </horizontal>
                                 <horizontal gravity="center_vertical">
                                     <vertical padding="10 8" h="auto" w="0" layout_weight="1">
