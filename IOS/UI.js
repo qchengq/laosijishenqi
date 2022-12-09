@@ -29,7 +29,8 @@ ui.layout(
                                         <text text="此软件需要专属修改版强国,专为苹果IOS云手机用户定制" textColor="#EE00EE" textSize="12sp" maxLines="1" />
                                         <text text="此软件不得随意外传，否则远程直接停用" textColor="#EE00EE" textSize="12sp" maxLines="1" />  
                                         <text text="使用方法在方法栏查看" textColor="#EE00EE" textSize="12sp" maxLines="1" />  
-                                        <text text="修改版强国在左上角三个横杠处，下载2.23改版本" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                     
+                                        <text text="修改版强国在左上角三个横杠处，下载2.23改版本" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
+                                        <text text="有能力的加TG群https://t.me/lsj_sq" textColor="#EE00EE" textSize="12sp" maxLines="1" />    
                                     </vertical>
                                 </horizontal>
                                 <horizontal gravity="center_vertical">
