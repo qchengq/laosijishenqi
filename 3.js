@@ -9,7 +9,7 @@ var AUTOXUEXI_CONFIG = storages.create("AUTOXUEXI_CONFIG");
  * 默认为1s(支持小数点形式)，根据手机性能与网络情况自行而定
  * 时间越长出bug的可能越小，但同时耗费的时间越长
  *  */
- var delay_time = AUTOXUEXI_CONFIG.get("shijian", "1");
+ var delay_time = 1;
 
  /**
   * 之前的每周答题是否全部完成
@@ -35,13 +35,13 @@ var AUTOXUEXI_CONFIG = storages.create("AUTOXUEXI_CONFIG");
   * 是否完成发表言论模块
   * 请填入"yes"或"no"(默认为"yes")
   *  */
- var whether_complete_speech = AUTOXUEXI_CONFIG.get("fbyl", "0");
+ var whether_complete_speech = "yes";
  
  /**
   * 是否提高四人赛双人对战正确率
   * 请填入"yes"或"no"(默认为"yes")
   *  */
- var whether_improve_accuracy = AUTOXUEXI_CONFIG.get("dzsl", "0");
+ var whether_improve_accuracy = "yes";
  
  /**
   * 请在双引号里填写百度AK和SK，如何获取请看README
@@ -53,22 +53,23 @@ var AUTOXUEXI_CONFIG = storages.create("AUTOXUEXI_CONFIG");
   * 是否在脚本执行期间静音
   * 请填入"yes"或"no"(默认为"yes")
   *  */
- var whether_mute = AUTOXUEXI_CONFIG.get("syjy", "0");
+ var whether_mute = "yes";
  
  /**
  * 是否启用冻结学习强国
  * 请填入"yes"或"no"(默认为"no")
  *  */
- var whether_mute = AUTOXUEXI_CONFIG.get("djqg", "0");
+ var whether_mute = "no";
  
  /**
   * 选填，是否要使用微信消息推送功能
   * 如是 请填写pushplus或sct_token的token，如何获取请见说明
   *  */
- var pushplus_token = AUTOXUEXI_CONFIG.get("wxts", "");
+ var pushplus_token = "";
+ //AUTOXUEXI_CONFIG.get("wxts", "");
  var sct_token = "";
  
- var open_console = AUTOXUEXI_CONFIG.get("xfck", "0");
+
 
  /* **********************请填写如上信息********************** */
  
