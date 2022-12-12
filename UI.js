@@ -202,7 +202,7 @@ ui.layout(
                                         <text text="百度AK,SK需要去百度云获取，百度收费项目" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                                                        
                                     </vertical>
                             </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="加载时间" />
                                     <text w="auto" textColor="#EE00EE" textSize="12sp" text="跳转页面加载的时间(以秒s为单位)" />
@@ -210,7 +210,7 @@ ui.layout(
                                     <text w="auto" textColor="#EE00EE" textSize="12sp" text="时间越长出bug的可能越小，但同时耗费的时间越长" />
                                 </vertical> 
                                 <input id="autoxuexi_shijian" marginLeft="4" marginRight="6" text="1"  hint="秒"  textSize="13sp"  inputType="number" />
-                            </horizontal>
+                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="每周答题" />
@@ -237,22 +237,22 @@ ui.layout(
                                 </vertical>    
                                     <spinner id="autoxuexi_dyue" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                            
                             </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="发表言论" />
                                     <text text="是否完成发表言论模块" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                 </vertical>    
                                     <spinner id="autoxuexi_fbyl" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                                 
-                            </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+                            </horizontal> */}
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="提高OCR精度" />
                                     <text text="是否提高四人赛双人对战正确率，需使用百度OCR" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                 </vertical>    
                                     <spinner id="autoxuexi_dzsl" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                                 
-                            </horizontal>
+                            </horizontal> */}
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="百度AK" />
@@ -267,38 +267,38 @@ ui.layout(
                                     <input id="autoxuexi_bdsk" text="" textColor="#FF6600" textSize="13sp" />                                
                                 </vertical>
                             </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="声音静音" />
                                     <text text="是否在脚本执行期间静音" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                 </vertical>    
                                     <spinner id="autoxuexi_syjy" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                                 
-                            </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+                            </horizontal> */}
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="冻结强国" />
                                     <text text="运行强国时是否首先冻结再启用" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入yes或no默认为no" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                 </vertical>    
                                     <spinner id="autoxuexi_djqg" marginLeft="4" marginRight="6" textColor="#FF6600" entries="yes|no" />                                 
-                            </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+                            </horizontal> */}
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="悬浮窗" />
                                     <text text="是否启用控制台悬浮窗" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="请填入true或false默认为true" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                 </vertical>    
                                     <spinner id="autoxuexi_xfck" marginLeft="4" marginRight="6" textColor="#FF6600" entries="true|false" />                                 
-                            </horizontal>
-                            <horizontal  gravity="center_vertical" padding="5 5" >
+                            </horizontal> */}
+{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="微信推送" />
                                     <text text="选填，是否要使用微信消息推送功能" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="公众号关注pushplus获取token" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                                                          
                                     <input id="autoxuexi_wxts" text="" textColor="#FF6600" textSize="13sp" />                                
                                 </vertical>
-                            </horizontal>
+                            </horizontal> */}
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="autoxuexi_save" text="保存配置" padding="12dp" w="*" />
                             </horizontal>
@@ -519,48 +519,48 @@ ui.wxtz_reset.click(function () {
 
 // 保存自动学习脚本设置
 ui.autoxuexi_save.click(function () {
-    AUTOXUEXI_CONFIG.put("shijian", ui.autoxuexi_shijian.getText()+"");
+    // AUTOXUEXI_CONFIG.put("shijian", ui.autoxuexi_shijian.getText()+"");
     AUTOXUEXI_CONFIG.put("mzdt", ui.autoxuexi_mzdt.getSelectedItemPosition());
     AUTOXUEXI_CONFIG.put("zxdt", ui.autoxuexi_zxdt.getSelectedItemPosition());
     AUTOXUEXI_CONFIG.put("dyue", ui.autoxuexi_dyue.getSelectedItemPosition());
-    AUTOXUEXI_CONFIG.put("fbyl", ui.autoxuexi_fbyl.getSelectedItemPosition());
-    AUTOXUEXI_CONFIG.put("zdsl", ui.autoxuexi_zdsl.getSelectedItemPosition());
+   /*  AUTOXUEXI_CONFIG.put("fbyl", ui.autoxuexi_fbyl.getSelectedItemPosition());
+    AUTOXUEXI_CONFIG.put("zdsl", ui.autoxuexi_zdsl.getSelectedItemPosition()); */
     AUTOXUEXI_CONFIG.put("bdak", ui.autoxuexi_bdak.getText()+"");
     AUTOXUEXI_CONFIG.put("bdsk", ui.autoxuexi_bdsk.getText()+"");
-    AUTOXUEXI_CONFIG.put("syjy", ui.autoxuexi_syjy.getSelectedItemPosition());
+   /*  AUTOXUEXI_CONFIG.put("syjy", ui.autoxuexi_syjy.getSelectedItemPosition());
     AUTOXUEXI_CONFIG.put("djqg", ui.autoxuexi_djqg.getSelectedItemPosition());
     AUTOXUEXI_CONFIG.put("xfck", ui.autoxuexi_xfck.getSelectedItemPosition());
-    AUTOXUEXI_CONFIG.put("wsts", ui.autoxuexi_wxts.getText()+"");
+    AUTOXUEXI_CONFIG.put("wsts", ui.autoxuexi_wxts.getText()+""); */
 
     toastLog("自动学习配置保存成功！");
 });
 
 // 重置自动学习脚本设置
 ui.autoxuexi_reset.click(function () {
-    AUTOXUEXI_CONFIG.put("shijian", "1");
-    ui.autoxuexi_shijian.setText(AUTOXUEXI_CONFIG.get("shijian"));
+  /*   AUTOXUEXI_CONFIG.put("shijian", "1");
+    ui.autoxuexi_shijian.setText(AUTOXUEXI_CONFIG.get("shijian")); */
     AUTOXUEXI_CONFIG.put("mzdt", 0);
     ui.autoxuexi_mzdt.setSelection(AUTOXUEXI_CONFIG.get("mzdt"));
     AUTOXUEXI_CONFIG.put("zxdt", 0);
     ui.autoxuexi_zxdt.setSelection(AUTOXUEXI_CONFIG.get("zxdt"));
     AUTOXUEXI_CONFIG.put("dyue", 0);
-    ui.autoxuexi_dyue.setSelection(AUTOXUEXI_CONFIG.get("dyue"));
+  /*   ui.autoxuexi_dyue.setSelection(AUTOXUEXI_CONFIG.get("dyue"));
     AUTOXUEXI_CONFIG.put("fbyl", 0);
     ui.autoxuexi_fbyl.setSelection(AUTOXUEXI_CONFIG.get("fbyl"));
     AUTOXUEXI_CONFIG.put("dzsl", 0);
-    ui.autoxuexi_dzsl.setSelection(AUTOXUEXI_CONFIG.get("dzsl"));
+    ui.autoxuexi_dzsl.setSelection(AUTOXUEXI_CONFIG.get("dzsl")); */
     AUTOXUEXI_CONFIG.put("bdak", "");
     ui.autoxuexi_bdak.setText(AUTOXUEXI_CONFIG.get("bdak"));
     AUTOXUEXI_CONFIG.put("bdsk", "");
     ui.autoxuexi_bdsk.setText(AUTOXUEXI_CONFIG.get("bdsk"));
-    AUTOXUEXI_CONFIG.put("syjy", 0);
+  /*   AUTOXUEXI_CONFIG.put("syjy", 0);
     ui.autoxuexi_syjy.setSelection(AUTOXUEXI_CONFIG.get("syjy"));
     AUTOXUEXI_CONFIG.put("djqg", 0);
     ui.autoxuexi_djqg.setSelection(AUTOXUEXI_CONFIG.get("djqg"));
     AUTOXUEXI_CONFIG.put("xfck", 0);
     ui.autoxuexi_xfck.setSelection(AUTOXUEXI_CONFIG.get("xfck"));
     AUTOXUEXI_CONFIG.put("wxts", "");
-    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts"));
+    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts")); */
 
     toastLog("自动学习配置恢复默认！");
 });
@@ -580,18 +580,18 @@ function Initialize() {
 
     // ui.lsj_wxtz.setSelection(WXTZ_CONFIG.get("wxtz", 0));
 
-    ui.autoxuexi_shijian.setText(AUTOXUEXI_CONFIG.get("shijian", "1"));
+    // ui.autoxuexi_shijian.setText(AUTOXUEXI_CONFIG.get("shijian", "1"));
     ui.autoxuexi_mzdt.setSelection(AUTOXUEXI_CONFIG.get("mzdt", 0));
     ui.autoxuexi_zxdt.setSelection(AUTOXUEXI_CONFIG.get("zxdt", 0));
     ui.autoxuexi_dyue.setSelection(AUTOXUEXI_CONFIG.get("dyue", 0));
-    ui.autoxuexi_fbyl.setSelection(AUTOXUEXI_CONFIG.get("fbyl", 0));
-    ui.autoxuexi_dzsl.setSelection(AUTOXUEXI_CONFIG.get("dzsl", 0));
+  /*   ui.autoxuexi_fbyl.setSelection(AUTOXUEXI_CONFIG.get("fbyl", 0));
+    ui.autoxuexi_dzsl.setSelection(AUTOXUEXI_CONFIG.get("dzsl", 0)); */
     ui.autoxuexi_bdak.setText(AUTOXUEXI_CONFIG.get("bdak", ""));
     ui.autoxuexi_bdsk.setText(AUTOXUEXI_CONFIG.get("bdsk", ""));
-    ui.autoxuexi_syjy.setSelection(AUTOXUEXI_CONFIG.get("syjy", 0));
+   /*  ui.autoxuexi_syjy.setSelection(AUTOXUEXI_CONFIG.get("syjy", 0));
     ui.autoxuexi_djqg.setSelection(AUTOXUEXI_CONFIG.get("djqg", 0));
     ui.autoxuexi_xfck.setSelection(AUTOXUEXI_CONFIG.get("xfck", 0));
-    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts", ""));
+    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts", "")); */
 
 }
 
