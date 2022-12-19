@@ -28,7 +28,7 @@ var shuangren = ("shuangren", true);
 var bendi = ("bendi", true);
 var dingyue = LSJ_CONFIG.get("dingyue", 0);
 var pushplus = LSJ_CONFIG.get("pushplus", "");
-var yl_on = ("yl_on", true);
+var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
 var zhanghao = LSJ_CONFIG.get("zhanghao", "");
 
