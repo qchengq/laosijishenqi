@@ -335,8 +335,8 @@ function do_shipin() {
     text("刷新重试").findOne().click();
   }
   sleep(random(8000,9500));
-  let re_times = 6;
-  if (ddtong) { re_times += 6; }
+  let re_times = 7;
+  if (ddtong) { re_times += 7; }
   for (let i=0; i<re_times; i++) {
     click(device_w / 2, device_h / 2);
     sleep(500);
@@ -432,8 +432,8 @@ function do_wenzhang() {
   let wen_box = wen_box_slt.findOne();
   // 先做5次
   let wen_num = 0;
-  let re_times = 6;
-  if (ddtong) { re_times += 6; }
+  let re_times = 7;
+  if (ddtong) { re_times += 7; }
   while (true) {
     let title = wen_box.findOne(idContains("general_card_title_id")).text();
     old_wen.push(title);
