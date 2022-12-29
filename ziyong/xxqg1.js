@@ -336,8 +336,7 @@ function do_wenzhang() {
 //   jifen_list = refind_jifen();
   // 点击进入本地
   let old_wen = storage_user.get("old_wen_list", []);
-  //log(typeof old_wen, old_wen);
-  jifen_list.child(jifen_map["本地"]).child(3).click();
+  entry_jinfen_project("本地");
   if (ddtong) { fSet("title", "文章(dd通)…"); }
   else { fSet("title", "选读文章…"); }
   fClear();
@@ -366,6 +365,7 @@ function do_wenzhang() {
   sleep(11500);
   back();
   fClear();
+
   // 下面正式刷文章
   fInfo("开始文章");
   sleep(1500);
