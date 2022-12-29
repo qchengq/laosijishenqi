@@ -26,10 +26,10 @@ var dacuo_num = ("dacuo_num", "0");
 var shuangren = ("shuangren", true);
 var bendi = ("bendi", true);
 var dingyue = LSJ_CONFIG.get("dingyue", 0);
-var pushplus = LSJ_CONFIG.get("pushplus", "");
+var pushplus = ("pushplus", "");
 var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
-var zhanghao = LSJ_CONFIG.get("zhanghao", "");
+var zhanghao = ("zhanghao", "");
 
 
 function google_ocr_api(img) {
