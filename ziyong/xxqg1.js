@@ -16,7 +16,6 @@ var meiri = ("meiri", true);
 var meizhou = LSJ_CONFIG.get("meizhou", 1);
 var zhuanxiang = LSJ_CONFIG.get("zhuanxiang", 1);
 var tiaozhan = ("tiaozhan", true);
-var sanren = ("sanren", false);
 var ocr_choice = ("ocr_choice", 0);
 var ocr_maxtime = LSJ_CONFIG.get("ocr_maxtime", "1500");
 var duizhan_mode = ("duizhan_mode", 0);
@@ -27,10 +26,10 @@ var dacuo_num = ("dacuo_num", "0");
 var shuangren = ("shuangren", true);
 var bendi = ("bendi", true);
 var dingyue = LSJ_CONFIG.get("dingyue", 0);
-var pushplus = ("pushplus", "");
+var pushplus = LSJ_CONFIG.get("pushplus", "");
 var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
-var zhanghao = ("zhanghao", "");
+var zhanghao = LSJ_CONFIG.get("zhanghao", "");
 
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
