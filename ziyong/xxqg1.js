@@ -3,9 +3,9 @@ var delay_time = 3000;
 device.wakeUpIfNeeded();
 
 // 读取自定义配置
-var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
+var LSJ_CONFIG = storages.create("LSJ_CONFIG");
 var watchdog = ("watchdog", "1800");
-var slide_verify = TTXS_PRO_CONFIG.get("slide_verify", "300");
+var slide_verify = LSJ_CONFIG.get("slide_verify", "300");
 var fast_mode = ("fast_mode", false);
 var ddtong = ("ddtong", false);
 var is_exit = ("is_exit", false);
@@ -13,11 +13,11 @@ var pinglun = ("pinglun", true);
 var shipin = ("shipin", true);
 var wenzhang = ("wenzhang", true);
 var meiri = ("meiri", true);
-var meizhou = TTXS_PRO_CONFIG.get("meizhou", 1);
-var zhuanxiang = TTXS_PRO_CONFIG.get("zhuanxiang", 1);
+var meizhou = LSJ_CONFIG.get("meizhou", 1);
+var zhuanxiang = LSJ_CONFIG.get("zhuanxiang", 1);
 var tiaozhan = ("tiaozhan", true);
 var ocr_choice = ("ocr_choice", 0);
-var ocr_maxtime = TTXS_PRO_CONFIG.get("ocr_maxtime", "1500");
+var ocr_maxtime = LSJ_CONFIG.get("ocr_maxtime", "1500");
 var duizhan_mode = ("duizhan_mode", 0);
 var jisu = ("jisu", "0");
 var guaji = ("guaji", false);
@@ -25,11 +25,12 @@ var siren = ("siren", true);
 var dacuo_num = ("dacuo_num", "0");
 var shuangren = ("shuangren", true);
 var bendi = ("bendi", true);
-var dingyue = TTXS_PRO_CONFIG.get("dingyue", 0);
-var pushplus = ("pushplus", "");
+var dingyue = LSJ_CONFIG.get("dingyue", 0);
+var pushplus = LSJ_CONFIG.get("pushplus", "");
 var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
-var zhanghao = ("zhanghao", "");
+var zhanghao = LSJ_CONFIG.get("zhanghao", "");
+
 
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
@@ -123,13 +124,9 @@ var engine_version = "v4.5";
 
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
-  let gengxin_rows = ["2.33版使用对话框取消，可订阅",
-  
-  "2.41版使用强制截图，不可订阅",
-
-  "第一次使用认真看使用说明，造成损失自行承担",
-                                  
-  "一切使用脚本行为均有封号风险，继续使用将视为自愿承担责任"];
+  let gengxin_rows = ["必须使用本人修改过的强国APP",
+                      "使用本软件有封号风险，请自行承担",
+                      "本软件不保证每个手机都能正常使用"];
   let is_show = confirm(engine_version + "版更新内容", gengxin_rows.join("\n"));
   if (!is_show) {storage.put(engine_version, false);}
 }
@@ -181,7 +178,7 @@ fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
 fInfo("检测题库更新");
-const update_info = get_tiku_by_http("https://gitcode.net/m0_73513081/ruikezhanghao/-/raw/master/info.json");
+const update_info = get_tiku_by_http("https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/info.json");
 fInfo("正在加载对战题库......请稍等\n题库版本:"+update_info["tiku_version"]);
 fInfo("如果不动就是正在下载，多等会");
 var tiku = [];
@@ -1886,7 +1883,7 @@ function get_ans_by_tiku(que_txt) {
 // 获取直链json
 function get_tiku_by_http(link) {
   // 通过gitee的原始数据保存题库
-  if (!link) {link = "https://gitcode.net/m0_73513081/ruikezhanghao/-/raw/master/tiku_json.txt"}
+  if (!link) {link = "https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/tiku_json.txt"}
   let req = http.get(link, {
     headers: {
       "Accept-Language": "zh-cn,zh;q=0.5",
