@@ -119,8 +119,8 @@ sleep(delay_time);
 /*****************更新内容弹窗部分*****************/
 var storage = storages.create('songgedodo');
 // 脚本版本号
-var last_version = "v1.0";
-var engine_version = "v1.1";
+var last_version = "v11.0";
+var engine_version = "v11.1";
 
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
