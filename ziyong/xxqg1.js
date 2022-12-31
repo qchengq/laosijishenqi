@@ -117,11 +117,12 @@ if (fast_mode) { auto.setMode("fast"); }
 events.observeToast();
 sleep(delay_time);
 /*****************更新内容弹窗部分*****************/
+
 var storage = storages.create('songgedodo');
 // 脚本版本号
-var last_version = "v11.0";
-var engine_version = "v11.1";
-
+var last_version = "V10.11";
+var engine_version = "V11.0";
+var newest_version = "V11.1";
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
   let gengxin_rows = ["必须使用本人修改过的强国APP",
