@@ -119,8 +119,8 @@ sleep(delay_time);
 /*****************更新内容弹窗部分*****************/
 var storage = storages.create('songgedodo');
 // 脚本版本号
-var last_version = "v4.0";
-var engine_version = "v4.5";
+var last_version = "v1.0";
+var engine_version = "v1.1";
 
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
@@ -316,8 +316,8 @@ function do_shipin() {
     text("刷新重试").findOne().click();
   }
   sleep(random(8000,9500));
-  let re_times = 6;
-  if (ddtong) { re_times += 6; }
+  let re_times = 7;
+  if (ddtong) { re_times += 7; }
   for (let i=0; i<re_times; i++) {
     click(device_w / 2, device_h / 2);
     sleep(500);
@@ -414,8 +414,8 @@ function do_wenzhang() {
   let wen_box = wen_box_slt.findOne();
   // 先做5次
   let wen_num = 0;
-  let re_times = 6;
-  if (ddtong) { re_times += 6; }
+  let re_times = 7;
+  if (ddtong) { re_times += 7; }
   while (true) {
     let title = wen_box.findOne(idContains("general_card_title_id")).text();
     old_wen.push(title);
@@ -447,7 +447,7 @@ function do_wenzhang() {
         // 第6次停顿刷时间
         //console.show();   
         toastLog("正在刷时长程序未停止");
-        let shichang = 6*random(55, 60);
+        let shichang = 7*random(55, 60);
         fClear();
         fInfo("开始刷时长，总共" + shichang + "秒");
         let wait_time = 1;
