@@ -118,25 +118,25 @@ sleep(delay_time);
 /*****************更新内容弹窗部分*****************/
 var storage = storages.create('songgedodo');
 // 脚本版本号
-var last_version = "v4.0";
-var engine_version = "v4.5";
-
+var last_version = "V10.11";
+var engine_version = "V11.0";
+var newest_version = "V11.1";
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
-  let gengxin_rows = ["2.33版使用对话框取消，可订阅",
-  
-  "2.41版使用强制截图，不可订阅",
-
-  "第一次使用认真看使用说明，造成损失自行承担",
-                                  
-  "一切使用脚本行为均有封号风险，继续使用将视为自愿承担责任"];
+  let gengxin_rows = ["最新版本强国APP不支持多人对战，切勿更新！",
+                      "强国APP版本v2.33.0以上不支持订阅，可以在豌豆荚中下载历史版本",
+                      "（点击取消不再提示）"];
   let is_show = confirm(engine_version + "版更新内容", gengxin_rows.join("\n"));
   if (!is_show) {storage.put(engine_version, false);}
 }
 var w = fInit();
-fInfo("老司机助手"+"脚本初始化");
+// console.setTitle("天天向上");
+// console.show();
+fInfo("天天向上Pro"+newest_version+"脚本初始化");
 // 初始化宽高
 var [device_w, device_h] = init_wh();
+// log("fina:", device_w, device_h);
+// OCR初始化，重写内置OCR module
 if (ocr_choice == 2) {
   fInfo("初始化第三方ocr插件");
   try {
@@ -158,7 +158,8 @@ if (ocr_choice == 2) {
     exit();
   }
 }
-
+// sleep(2000);
+// 自动允许权限进程
 threads.start(function() {
   //在新线程执行的代码
   //sleep(500);
@@ -181,7 +182,7 @@ fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
 fInfo("检测题库更新");
-const update_info = get_tiku_by_http("https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/info.json");
+const update_info = get_tiku_by_http("https://gitcode.net/m0_64980826/songge_tiku/-/raw/master/info.json");
 fInfo("正在加载对战题库......请稍等\n题库版本:"+update_info["tiku_version"]);
 fInfo("如果不动就是正在下载，多等会");
 var tiku = [];
@@ -196,7 +197,7 @@ catch (e) {
   dati_tiku = get_tiku_by_ct('https://webapi.ctfile.com/get_file_url.php?uid=35157972&fid=555754562&file_chk=94c3c662ba28f583d2128a1eb9d78af4&app=0&acheck=2&rd=0.14725283060014105');
 }
 // 设置资源保存路径
-files.createWithDirs("/sdcard/学习助手/");
+files.createWithDirs("/sdcard/天天向上/");
 // 调整音量
 if (yl_on) {
   fInfo("设置媒体音量");
@@ -226,6 +227,20 @@ fInfo("跳转学习APP");
 // launch('cn.xuexi.android');
 app.launchApp('学习强国');
 sleep(2000);
+// console.hide();
+// 命令行方式启动，似乎需要root
+// var result_shell = shell("pm disable cn.xuexi.android");
+// log(result_shell.code, result_shell.error);
+/***************不要动****************
+ * **********************************
+// 创建一个安卓动作，打开软件，此功能可以跳过开屏页，还在实验中
+// app.startActivity({
+//   action: 'android.intent.action.VIEW',
+//   data: 'dtxuexi://appclient/page/study_feeds',
+//   packageName: 'cn.xuexi.android',
+// });
+ * **********************************
+*************************************/
 
 
 function do_pinglun() {
@@ -339,8 +354,7 @@ function do_wenzhang() {
 //   jifen_list = refind_jifen();
   // 点击进入本地
   let old_wen = storage_user.get("old_wen_list", []);
-  //log(typeof old_wen, old_wen);
-  jifen_list.child(jifen_map["本地"]).child(3).click();
+  entry_jinfen_project("本地");
   if (ddtong) { fSet("title", "文章(dd通)…"); }
   else { fSet("title", "选读文章…"); }
   fClear();
@@ -1015,9 +1029,9 @@ function do_duizhan1(renshu) {
     }
       console.timeEnd('题目识别');
       if (!que_txt) {
-        images.save(img, '/sdcard/老司机助手/' + renshu + '-' + num + '.png','png',50);
-        images.save(que_img, '/sdcard/老司机助手/' + renshu + '-' + num + '-q.png','png',50);
-        fError("未识别出题目，图片保存至‘/sdcard/老司机助手/’");
+        images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '.png','png',50);
+        images.save(que_img, '/sdcard/天天向上/' + renshu + '-' + num + '-q.png','png',50);
+        fError("未识别出题目，图片保存至‘/sdcard/天天向上/’");
         console.error("大概率无障碍服务失效"+ auto.service);
         console.error("题目框体范围：", que_x, que_y, que_w, que_h);
         img.recycle();
@@ -1137,8 +1151,8 @@ function do_duizhan1(renshu) {
     console.timeEnd("选项识别");
     // log(allx_txt);
     if (!allx_txt) {
-      images.save(img, '/sdcard/老司机助手/' + renshu + '-' + num + '-a.png','png',50);
-      log("识别不出选项文本，图片保存至‘/sdcard/老司机助手/’");
+      images.save(img, '/sdcard/天天向上/' + renshu + '-' + num + '-a.png','png',50);
+      log("识别不出选项文本，图片保存至‘/sdcard/天天向上/’");
       err_flag = false;
       sleep(200);
       continue;
@@ -1886,7 +1900,7 @@ function get_ans_by_tiku(que_txt) {
 // 获取直链json
 function get_tiku_by_http(link) {
   // 通过gitee的原始数据保存题库
-  if (!link) {link = "https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/tiku_json.txt"}
+  if (!link) {link = "https://mart-17684809426.coding.net/p/tiku/d/tiku/git/raw/master/tiku_json.txt"}
   let req = http.get(link, {
     headers: {
       "Accept-Language": "zh-cn,zh;q=0.5",
@@ -2119,7 +2133,7 @@ function send_pushplus(token, sign_list) {
   content_str += '</div>'+style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
-    title: "老司机助手："+name,
+    title: "天天向上："+name,
     content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
     template: "markdown",
   });
@@ -2139,7 +2153,7 @@ function send_email(email) {
   let content = "用户" + name + "已完成：" + zongfen;
   var data=app.intent({action: "SENDTO"});
   data.setData(app.parseUri("mailto:"+e_addr));
-  data.putExtra(Intent.EXTRA_SUBJECT, "老司机助手："+name);
+  data.putExtra(Intent.EXTRA_SUBJECT, "天天向上："+name);
   data.putExtra(Intent.EXTRA_TEXT, content);
   app.startActivity(data);
   return true;
@@ -2297,7 +2311,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">老司机助手+</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip">天天向上+</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -2311,7 +2325,7 @@ function fInit() {
   );
   ui.run(function() {
     //w.title.setFocusable(true);
-    w.version.setText("老司机助手");
+    w.version.setText("天天向上+"+newest_version);
   });
   w.setSize(720, -2);
   w.setPosition(10, 10);
@@ -2567,7 +2581,10 @@ if (yl_on) {
 // 取消屏幕常亮
 fInfo("取消屏幕常亮");
 device.cancelKeepingAwake();
-
+// exit_app("学习强国");
+// if (email) {
+//   send_email(email);
+// }
 // 震动提示
 device.vibrate(500);
 fInfo("十秒后关闭悬浮窗");
