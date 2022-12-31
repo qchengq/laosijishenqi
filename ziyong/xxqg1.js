@@ -3,9 +3,9 @@ var delay_time = 3000;
 device.wakeUpIfNeeded();
 
 // 读取自定义配置
-var TTXS_PRO_CONFIG = storages.create("TTXS_PRO_CONFIG");
+var LSJ_CONFIG = storages.create("LSJ_CONFIG");
 var watchdog = ("watchdog", "1800");
-var slide_verify = TTXS_PRO_CONFIG.get("slide_verify", "300");
+var slide_verify = LSJ_CONFIG.get("slide_verify", "300");
 var fast_mode = ("fast_mode", false);
 var ddtong = ("ddtong", false);
 var is_exit = ("is_exit", false);
@@ -13,11 +13,11 @@ var pinglun = ("pinglun", true);
 var shipin = ("shipin", true);
 var wenzhang = ("wenzhang", true);
 var meiri = ("meiri", true);
-var meizhou = TTXS_PRO_CONFIG.get("meizhou", 1);
-var zhuanxiang = TTXS_PRO_CONFIG.get("zhuanxiang", 1);
+var meizhou = LSJ_CONFIG.get("meizhou", 1);
+var zhuanxiang = LSJ_CONFIG.get("zhuanxiang", 1);
 var tiaozhan = ("tiaozhan", true);
 var ocr_choice = ("ocr_choice", 0);
-var ocr_maxtime = TTXS_PRO_CONFIG.get("ocr_maxtime", "1500");
+var ocr_maxtime = LSJ_CONFIG.get("ocr_maxtime", "1500");
 var duizhan_mode = ("duizhan_mode", 0);
 var jisu = ("jisu", "0");
 var guaji = ("guaji", false);
@@ -25,11 +25,11 @@ var siren = ("siren", true);
 var dacuo_num = ("dacuo_num", "0");
 var shuangren = ("shuangren", true);
 var bendi = ("bendi", true);
-var dingyue = TTXS_PRO_CONFIG.get("dingyue", 0);
-var pushplus = ("pushplus", "");
+var dingyue = LSJ_CONFIG.get("dingyue", 0);
+var pushplus = LSJ_CONFIG.get("pushplus", "");
 var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
-var zhanghao = ("zhanghao", "");
+var zhanghao = LSJ_CONFIG.get("zhanghao", "");
 
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
