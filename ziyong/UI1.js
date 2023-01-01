@@ -58,6 +58,14 @@ ui.layout(
                                 </vertical> 
                                 <input id="lsj_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
                             </horizontal>
+
+ <horizontal  gravity="center_vertical" padding="5 5" >
+                              <vertical padding="10 8" h="auto" w="0" layout_weight="1">
+                                    <text w="auto" textColor="#FFFF00" textSize="15sp" text="每周答题" />                                                                     
+                                    <spinner id="lsj_meizhou" marginLeft="4" marginRight="6"  entries="最近一次已作答开始倒序|正序答题|不做" />                                 
+                                </vertical>
+                            </horizontal>
+
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#222222" textSize="15sp" text="专项答题" />
@@ -204,7 +212,7 @@ ui.start.click(function () {
 // 保存老司机神器脚本设置
 ui.lsj_save.click(function () {
     LSJ_CONFIG.put("slide_verify", ui.lsj_slide_verify.getText()+"");
-    //LSJ_CONFIG.put("meizhou", ui.lsj_meizhou.getSelectedItemPosition());
+    LSJ_CONFIG.put("meizhou", ui.lsj_meizhou.getSelectedItemPosition());
     LSJ_CONFIG.put("zhuanxiang", ui.lsj_zhuanxiang.getSelectedItemPosition());
     LSJ_CONFIG.put("ocr_maxtime", ui.lsj_ocr_maxtime.getText()+"");
     LSJ_CONFIG.put("dingyue", ui.lsj_dingyue.getSelectedItemPosition());
@@ -218,8 +226,8 @@ ui.lsj_save.click(function () {
 ui.lsj_reset.click(function () {
     LSJ_CONFIG.put("slide_verify", "300");
     ui.lsj_slide_verify.setText(LSJ_CONFIG.get("slide_verify"));
-    //LSJ_CONFIG.put("meizhou", 1);
-    //ui.lsj_meizhou.setSelection(LSJ_CONFIG.get("meizhou"));
+    LSJ_CONFIG.put("meizhou", 1);
+    ui.lsj_meizhou.setSelection(LSJ_CONFIG.get("meizhou"));
     LSJ_CONFIG.put("zhuanxiang", 1);
     ui.lsj_zhuanxiang.setSelection(LSJ_CONFIG.get("zhuanxiang"));
     LSJ_CONFIG.put("ocr_maxtime", "1500");
@@ -239,7 +247,7 @@ function Initialize() {
     //ui.script_chosen.setSelection(GLOBAL_CONFIG.get("script_chosen", 0));
 
     ui.lsj_slide_verify.setText(LSJ_CONFIG.get("slide_verify", "300"));
-    //ui.lsj_meizhou.setSelection(LSJ_CONFIG.get("meizhou", 1));
+    ui.lsj_meizhou.setSelection(LSJ_CONFIG.get("meizhou", 1));
     ui.lsj_zhuanxiang.setSelection(LSJ_CONFIG.get("zhuanxiang", 1));
     ui.lsj_ocr_maxtime.setText(LSJ_CONFIG.get("ocr_maxtime", "1500"));
     ui.lsj_dingyue.setSelection(LSJ_CONFIG.get("dingyue", 1));
