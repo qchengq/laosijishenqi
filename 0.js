@@ -1,4 +1,5 @@
 
+
 auto.waitFor();//mode = "fast"
 var delay_time = 3000;
 device.wakeUpIfNeeded();
@@ -120,9 +121,9 @@ sleep(delay_time);
 /*****************更新内容弹窗部分*****************/
 var storage = storages.create('songgedodo');
 // 脚本版本号
-var last_version = "v1.0";
-var engine_version = "v1.1";
-
+var last_version = "V10.11";
+var engine_version = "V11.0";
+var newest_version = "V11.1";
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
   let gengxin_rows = ["必须使用本人修改过的强国APP",
@@ -132,9 +133,13 @@ if (storage.get(engine_version, true)) {
   if (!is_show) {storage.put(engine_version, false);}
 }
 var w = fInit();
-fInfo("老司机助手"+"脚本初始化");
+// console.setTitle("老司机神器");
+// console.show();
+fInfo("老司机神器"+newest_version+"脚本初始化");
 // 初始化宽高
 var [device_w, device_h] = init_wh();
+// log("fina:", device_w, device_h);
+// OCR初始化，重写内置OCR module
 if (ocr_choice == 2) {
   fInfo("初始化第三方ocr插件");
   try {
@@ -156,7 +161,8 @@ if (ocr_choice == 2) {
     exit();
   }
 }
-
+// sleep(2000);
+// 自动允许权限进程
 threads.start(function() {
   //在新线程执行的代码
   //sleep(500);
@@ -194,7 +200,7 @@ catch (e) {
   dati_tiku = get_tiku_by_ct('https://webapi.ctfile.com/get_file_url.php?uid=35157972&fid=555754562&file_chk=94c3c662ba28f583d2128a1eb9d78af4&app=0&acheck=2&rd=0.14725283060014105');
 }
 // 设置资源保存路径
-files.createWithDirs("/sdcard/学习助手/");
+files.createWithDirs("/sdcard/老司机神器/");
 // 调整音量
 if (yl_on) {
   fInfo("设置媒体音量");
@@ -224,6 +230,20 @@ fInfo("跳转学习APP");
 // launch('cn.xuexi.android');
 app.launchApp('学习强国');
 sleep(2000);
+// console.hide();
+// 命令行方式启动，似乎需要root
+// var result_shell = shell("pm disable cn.xuexi.android");
+// log(result_shell.code, result_shell.error);
+/***************不要动****************
+ * **********************************
+// 创建一个安卓动作，打开软件，此功能可以跳过开屏页，还在实验中
+// app.startActivity({
+//   action: 'android.intent.action.VIEW',
+//   data: 'dtxuexi://appclient/page/study_feeds',
+//   packageName: 'cn.xuexi.android',
+// });
+ * **********************************
+*************************************/
 
 
 function do_pinglun() {
@@ -317,8 +337,8 @@ function do_shipin() {
     text("刷新重试").findOne().click();
   }
   sleep(random(8000,9500));
-  let re_times = 7;
-  if (ddtong) { re_times += 7; }
+  let re_times = 6;
+  if (ddtong) { re_times += 6; }
   for (let i=0; i<re_times; i++) {
     click(device_w / 2, device_h / 2);
     sleep(500);
@@ -366,7 +386,6 @@ function do_wenzhang() {
   sleep(11500);
   back();
   fClear();
-
   // 下面正式刷文章
   fInfo("开始文章");
   sleep(1500);
@@ -415,8 +434,8 @@ function do_wenzhang() {
   let wen_box = wen_box_slt.findOne();
   // 先做5次
   let wen_num = 0;
-  let re_times = 7;
-  if (ddtong) { re_times += 7; }
+  let re_times = 6;
+  if (ddtong) { re_times += 6; }
   while (true) {
     let title = wen_box.findOne(idContains("general_card_title_id")).text();
     old_wen.push(title);
@@ -1013,9 +1032,9 @@ function do_duizhan1(renshu) {
     }
       console.timeEnd('题目识别');
       if (!que_txt) {
-        images.save(img, '/sdcard/老司机助手/' + renshu + '-' + num + '.png','png',50);
-        images.save(que_img, '/sdcard/老司机助手/' + renshu + '-' + num + '-q.png','png',50);
-        fError("未识别出题目，图片保存至‘/sdcard/老司机助手/’");
+        images.save(img, '/sdcard/老司机神器/' + renshu + '-' + num + '.png','png',50);
+        images.save(que_img, '/sdcard/老司机神器/' + renshu + '-' + num + '-q.png','png',50);
+        fError("未识别出题目，图片保存至‘/sdcard/老司机神器/’");
         console.error("大概率无障碍服务失效"+ auto.service);
         console.error("题目框体范围：", que_x, que_y, que_w, que_h);
         img.recycle();
@@ -1135,8 +1154,8 @@ function do_duizhan1(renshu) {
     console.timeEnd("选项识别");
     // log(allx_txt);
     if (!allx_txt) {
-      images.save(img, '/sdcard/老司机助手/' + renshu + '-' + num + '-a.png','png',50);
-      log("识别不出选项文本，图片保存至‘/sdcard/老司机助手/’");
+      images.save(img, '/sdcard/老司机神器/' + renshu + '-' + num + '-a.png','png',50);
+      log("识别不出选项文本，图片保存至‘/sdcard/老司机神器/’");
       err_flag = false;
       sleep(200);
       continue;
@@ -2117,7 +2136,7 @@ function send_pushplus(token, sign_list) {
   content_str += '</div>'+style_str;
   let r = http.postJson("http://www.pushplus.plus/send", {
     token: token,
-    title: "老司机助手："+name,
+    title: "老司机神器："+name,
     content: content_str + "</div><style>.item{height:1.5em;line-height:1.5em;}.item span{display:inline-block;padding-left:0.4em;}.item .bar{width:100px;height:10px;background-color:#ddd;border-radius:5px;display:inline-block;}.item .bar div{height:10px;background-color:#ed4e45;border-radius:5px;}</style>",
     template: "markdown",
   });
@@ -2137,7 +2156,7 @@ function send_email(email) {
   let content = "用户" + name + "已完成：" + zongfen;
   var data=app.intent({action: "SENDTO"});
   data.setData(app.parseUri("mailto:"+e_addr));
-  data.putExtra(Intent.EXTRA_SUBJECT, "老司机助手："+name);
+  data.putExtra(Intent.EXTRA_SUBJECT, "老司机神器："+name);
   data.putExtra(Intent.EXTRA_TEXT, content);
   app.startActivity(data);
   return true;
@@ -2217,7 +2236,7 @@ function login(username, pwd) {
 
 function refind_jifen() {
   className("android.webkit.WebView").scrollable().findOne().scrollForward();
-  var a = className("android.widget.ListView").rowCount(14).findOne();
+  var a = className("android.widget.ListView").rowCount(13).findOne();
   21 == a.depth() ? (jifen_flag = "old", fInfo("检测为旧版界面")) : 23 == a.depth() && (jifen_flag = "new", fInfo("检测为新版界面"));
   return a
 }
@@ -2295,7 +2314,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">老司机助手+</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip"> 老司机神器 +</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -2309,7 +2328,7 @@ function fInit() {
   );
   ui.run(function() {
     //w.title.setFocusable(true);
-    w.version.setText("老司机助手");
+    w.version.setText("老司机神器 +"+newest_version);
   });
   w.setSize(720, -2);
   w.setPosition(10, 10);
@@ -2428,12 +2447,12 @@ function xxqg(userinfo) {
       auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list = refind_jifen());
   true == meiri && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["每日"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["每日"]).child(4).text()) && (toastLog("每日答题开始"), do_meiri(), jifen_list = refind_jifen());
   c = 1;
-  if (2 != meizhou && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(2).text().match(/\d+/)[0] ||
-          "new" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(3).child(0).text())) {
-      toastLog("每周答题开始");
-      for (c = do_meizhou(); !c;) c = do_meizhou();
-      jifen_list = refind_jifen()
-  }
+  // if (2 != meizhou && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(2).text().match(/\d+/)[0] ||
+  //         "new" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(3).child(0).text())) {
+  //     toastLog("每周答题开始");
+  //     for (c = do_meizhou(); !c;) c = do_meizhou();
+  //     jifen_list = refind_jifen()
+  // }
   2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text()) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list =
       refind_jifen());
   true == tiaozhan && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["挑战"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["挑战"]).child(4).text()) && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list = refind_jifen());
@@ -2520,7 +2539,7 @@ function main(userinfo){
 /*******************主程序部分*******************/
 /********定义全局变量*********/
 var jifen_list, meizhou_dao, zhuanxiang_dao, dingyue_dao, storage_user, name, jinri, zongfen;
-var jifen_map = {"评论":10,"视频":2,"文章":1,"每日":4,"每周":13,"专项":5,"挑战":6,"四人":7,"双人":8,
+var jifen_map = {"评论":10,"视频":2,"文章":1,"每日":4,"专项":5,"挑战":6,"四人":7,"双人":8,
                 "订阅":9,"本地":11},
     jifen_flag = "old";
 // 分割账号
@@ -2565,7 +2584,10 @@ if (yl_on) {
 // 取消屏幕常亮
 fInfo("取消屏幕常亮");
 device.cancelKeepingAwake();
-
+// exit_app("学习强国");
+// if (email) {
+//   send_email(email);
+// }
 // 震动提示
 device.vibrate(500);
 fInfo("十秒后关闭悬浮窗");
