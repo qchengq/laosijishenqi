@@ -291,14 +291,14 @@ ui.layout(
                                 </vertical>    
                                     <spinner id="autoxuexi_xfck" marginLeft="4" marginRight="6" textColor="#FF6600" entries="true|false" />                                 
                             </horizontal> */}
-{/*                             <horizontal  gravity="center_vertical" padding="5 5" >
+                            <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="5 5 5 5" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="微信推送" />
                                     <text text="选填，是否要使用微信消息推送功能" textColor="#EE00EE" textSize="12sp" maxLines="1" /> 
                                     <text text="公众号关注pushplus获取token" textColor="#EE00EE" textSize="12sp" maxLines="1" />                                                                          
                                     <input id="autoxuexi_wxts" text="" textColor="#FF6600" textSize="13sp" />                                
                                 </vertical>
-                            </horizontal> */}
+                            </horizontal>
                             <horizontal>
                                 <button style="Widget.AppCompat.Button.Colored" id="autoxuexi_save" text="保存配置" padding="12dp" w="*" />
                             </horizontal>
@@ -529,8 +529,8 @@ ui.autoxuexi_save.click(function () {
     AUTOXUEXI_CONFIG.put("bdsk", ui.autoxuexi_bdsk.getText()+"");
    /*  AUTOXUEXI_CONFIG.put("syjy", ui.autoxuexi_syjy.getSelectedItemPosition());
     AUTOXUEXI_CONFIG.put("djqg", ui.autoxuexi_djqg.getSelectedItemPosition());
-    AUTOXUEXI_CONFIG.put("xfck", ui.autoxuexi_xfck.getSelectedItemPosition());
-    AUTOXUEXI_CONFIG.put("wsts", ui.autoxuexi_wxts.getText()+""); */
+    AUTOXUEXI_CONFIG.put("xfck", ui.autoxuexi_xfck.getSelectedItemPosition());*/
+    AUTOXUEXI_CONFIG.put("wsts", ui.autoxuexi_wxts.getText()+""); 
 
     toastLog("自动学习配置保存成功！");
 });
@@ -558,9 +558,9 @@ ui.autoxuexi_reset.click(function () {
     AUTOXUEXI_CONFIG.put("djqg", 0);
     ui.autoxuexi_djqg.setSelection(AUTOXUEXI_CONFIG.get("djqg"));
     AUTOXUEXI_CONFIG.put("xfck", 0);
-    ui.autoxuexi_xfck.setSelection(AUTOXUEXI_CONFIG.get("xfck"));
+    ui.autoxuexi_xfck.setSelection(AUTOXUEXI_CONFIG.get("xfck"));*/
     AUTOXUEXI_CONFIG.put("wxts", "");
-    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts")); */
+    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts")); 
 
     toastLog("自动学习配置恢复默认！");
 });
@@ -590,8 +590,8 @@ function Initialize() {
     ui.autoxuexi_bdsk.setText(AUTOXUEXI_CONFIG.get("bdsk", ""));
    /*  ui.autoxuexi_syjy.setSelection(AUTOXUEXI_CONFIG.get("syjy", 0));
     ui.autoxuexi_djqg.setSelection(AUTOXUEXI_CONFIG.get("djqg", 0));
-    ui.autoxuexi_xfck.setSelection(AUTOXUEXI_CONFIG.get("xfck", 0));
-    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts", "")); */
+    ui.autoxuexi_xfck.setSelection(AUTOXUEXI_CONFIG.get("xfck", 0)); */
+    ui.autoxuexi_wxts.setText(AUTOXUEXI_CONFIG.get("wxts", ""));
 
 }
 
