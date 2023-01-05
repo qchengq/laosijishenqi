@@ -101,10 +101,10 @@ function check_set_env(whether_mute, whether_froze_app,
     }
 
     // 检查Hamibot版本是否支持ocr
-    if (app.versionName < "1.3.1") {
+   /* if (app.versionName < "1.3.1") {
         toast("请将Hamibot更新至v1.3.1版本或更高版本");
         exit();
-    }
+    }*/
 
     // 将设备保持常亮
     device.keepScreenDim();
