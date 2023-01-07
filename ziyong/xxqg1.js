@@ -466,7 +466,7 @@ function do_wenzhang() {
         // 第6次停顿刷时间
         //console.show();   
         toastLog("正在刷时长程序未停止");
-        let shichang = 7*random(55, 60);
+        let shichang = 6*random(55, 60);
         fClear();
         fInfo("开始刷时长，总共" + shichang + "秒");
         let wait_time = 1;
