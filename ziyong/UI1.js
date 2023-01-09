@@ -59,12 +59,12 @@ ui.layout(
                                 <input id="lsj_slide_verify" marginLeft="4" marginRight="6" text="300" textSize="13sp"  inputType="number" />
                             </horizontal>
 
- <horizontal  gravity="center_vertical" padding="5 5" >
+                         {/*   <horizontal  gravity="center_vertical" padding="5 5" >
                               <vertical padding="10 8" h="auto" w="0" layout_weight="1">
                                     <text w="auto" textColor="#FFFF00" textSize="15sp" text="每周答题" />                                                                     
                                     <spinner id="lsj_meizhou" marginLeft="4" marginRight="6"  entries="最近一次已作答开始倒序|正序答题|不做" />                                 
                                 </vertical>
-                            </horizontal>
+                            </horizontal>   */}
 
                             <horizontal  gravity="center_vertical" padding="5 5" >
                                 <vertical padding="10 8" h="auto" w="0" layout_weight="1">
