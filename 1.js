@@ -1,3 +1,5 @@
+
+
 auto.waitFor();//mode = "fast"
 var delay_time = 3000;
 device.wakeUpIfNeeded();
@@ -13,10 +15,9 @@ var pinglun = ("pinglun", false);
 var shipin = ("shipin", false);
 var wenzhang = ("wenzhang", false);
 var meiri = ("meiri", true);
-var meizhou = LSJAUTO_CONFIG.get("meizhou", 2);
-var zhuanxiang = LSJAUTO_CONFIG.get("zhuanxiang", 2);
+var meizhou = ("meizhou", 2);
+var zhuanxiang = ("zhuanxiang", 2);
 var tiaozhan = ("tiaozhan", true);
-var sanren = ("sanren", false);
 var ocr_choice = ("ocr_choice", 0);
 var ocr_maxtime = LSJAUTO_CONFIG.get("ocr_maxtime", "1500");
 var duizhan_mode = ("duizhan_mode", 0);
@@ -31,6 +32,7 @@ var pushplus = ("pushplus", "");
 var yl_on = ("yl_on", false);
 var yinliang = ("yinliang", "0");
 var zhanghao = ("zhanghao", "");
+
 
 function google_ocr_api(img) {
   console.log('GoogleMLKit文字识别中');
@@ -119,14 +121,14 @@ sleep(delay_time);
 /*****************更新内容弹窗部分*****************/
 var storage = storages.create('songgedodo');
 // 脚本版本号
-var last_version = "V0.9";
-var engine_version = "V1.0";
-var newest_version = "V1.1";
+var last_version = "V10.11";
+var engine_version = "V11.0";
+var newest_version = "V11.1";
 if (storage.get(engine_version, true)) {
   storage.remove(last_version);
   let gengxin_rows = ["必须使用本人修改过的强国APP",
                       "使用本软件有封号风险，请自行承担",
-                      "本软件不保证每个手机都能正常使用，唯一联系QQ807397510"];
+                      "本软件不保证每个手机都能正常使用"];
   let is_show = confirm(engine_version + "版更新内容", gengxin_rows.join("\n"));
   if (!is_show) {storage.put(engine_version, false);}
 }
@@ -183,7 +185,7 @@ fInfo("设置屏幕常亮");
 device.keepScreenOn(3600 * 1000);
 // 下载题库
 fInfo("检测题库更新");
-const update_info = get_tiku_by_http("https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/info.json"); 
+const update_info = get_tiku_by_http("https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/info.json");
 fInfo("正在加载对战题库......请稍等\n题库版本:"+update_info["tiku_version"]);
 fInfo("如果不动就是正在下载，多等会");
 var tiku = [];
@@ -862,57 +864,6 @@ function do_tiaozhan() {
     // 没答错总数加1
     total += 1;
   }
-}
-
-
-/********太空三人行*********/
-function do_sanren() {
-  entry_jinfen_project("三人");
-  fSet("title", "太空三人行…");
-  fClear();
-  fInfo("开始用户须知弹窗检测");
-  var user_thread = threads.start(function() {
-    //在新线程执行的代码
-    className("android.widget.Button").text("不同意").waitFor();
-    fInfo("检测到用户须知弹窗");
-    sleep(1000);
-    var btn = className("android.widget.Button").text("同意").findOne();
-    btn.click();
-    fInfo("已同意");
-  });
-  sleep(1000);
-  for (var i = 0; i < 2; i++) {
-      sleep(1000);
-      textStartsWith("网络").findOne().parent().child(1).child(0).click();
-      sleep(1000);
-      while (!text("开始").exists());
-      while (!text("继续挑战").exists()) {
-          sleep(2000);
-          // 等待选项加载
-          className("android.widget.RadioButton").depth(32).clickable(true).waitFor();
-          // 随机选择
-          try {
-              var options = className("android.widget.RadioButton").depth(32).find();
-              var select = random(0, options.length - 1);
-              className("android.widget.RadioButton").depth(32).findOnce(select).click();
-          } catch (error) {
-          }
-          while (!textMatches(/第\d题/).exists() && !text("继续挑战").exists() && !text("开始").exists());
-      }
-      if (i < 1) {
-          sleep(1000);
-          while (!click("继续挑战"));
-          sleep(1000);
-      }
-  }
-  user_thread.isAlive() && (user_thread.interrupt(), fInfo("终止用户须知弹窗检测"));
-  sleep(2000);
-  back();
-  sleep(1000);
-  back();
-  text("登录").waitFor();
-  ran_sleep();
-  return true;
 }
 
 /********双人、四人赛*********/
@@ -1952,7 +1903,7 @@ function get_ans_by_tiku(que_txt) {
 // 获取直链json
 function get_tiku_by_http(link) {
   // 通过gitee的原始数据保存题库
-  if (!link) {link = "https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/tiku_json.txt"} 
+  if (!link) {link = "https://ghproxy.com/https://raw.githubusercontent.com/qchengq/laosijishenqi/main/tiku_json.txt"}
   let req = http.get(link, {
     headers: {
       "Accept-Language": "zh-cn,zh;q=0.5",
@@ -2094,7 +2045,7 @@ function init_wh() {
     sleep(10000);
   }
   else if (device.width == 0 || device.height == 0) {
-    fError("识别不出设备宽高，建议重启老司机神器后重新运行脚本");
+    fError("识别不出设备宽高，建议重启强国助手后重新运行脚本");
     sleep(10000);
   }
   return [device_w, device_h]
@@ -2285,7 +2236,7 @@ function login(username, pwd) {
 
 function refind_jifen() {
   className("android.webkit.WebView").scrollable().findOne().scrollForward();
-  var a = className("android.widget.ListView").rowCount(15).findOne();
+  var a = className("android.widget.ListView").rowCount(13).findOne();
   21 == a.depth() ? (jifen_flag = "old", fInfo("检测为旧版界面")) : 23 == a.depth() && (jifen_flag = "new", fInfo("检测为新版界面"));
   return a
 }
@@ -2363,7 +2314,7 @@ function fInit() {
     <card cardCornerRadius='8dp' alpha="0.8">
       <vertical>
         <horizontal bg='#FF000000' padding='10 5'>
-        <text id='version' textColor="#FFFFFF" textSize="18dip">老司机神器+</text>
+        <text id='version' textColor="#FFFFFF" textSize="18dip"> 老司机神器 +</text>
         <text id='title' h="*" textColor="#FFFFFF" textSize="13dip" layout_weight="1" gravity="top|right"></text>
         </horizontal>
         <ScrollView>
@@ -2377,7 +2328,7 @@ function fInit() {
   );
   ui.run(function() {
     //w.title.setFocusable(true);
-    w.version.setText("老司机神器+"+newest_version);
+    w.version.setText("老司机神器 +"+newest_version);
   });
   w.setSize(720, -2);
   w.setPosition(10, 10);
@@ -2496,16 +2447,15 @@ function xxqg(userinfo) {
       auto.service), toastLog("开始文章次数与时长"), do_wenzhang(), jifen_list = refind_jifen());
   true == meiri && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["每日"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["每日"]).child(4).text()) && (toastLog("每日答题开始"), do_meiri(), jifen_list = refind_jifen());
   c = 1;
-  if (2 != meizhou && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(2).text().match(/\d+/)[0] ||
-          "new" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(3).child(0).text())) {
-      toastLog("每周答题开始");
-      for (c = do_meizhou(); !c;) c = do_meizhou();
-      jifen_list = refind_jifen()
-  }
+  // if (2 != meizhou && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(2).text().match(/\d+/)[0] ||
+  //         "new" == jifen_flag && "0" == jifen_list.child(jifen_map["每周"]).child(3).child(0).text())) {
+  //     toastLog("每周答题开始");
+  //     for (c = do_meizhou(); !c;) c = do_meizhou();
+  //     jifen_list = refind_jifen()
+  // }
   2 != zhuanxiang && ("old" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(2).text().match(/\d+/)[0] || "new" == jifen_flag && "0" == jifen_list.child(jifen_map["专项"]).child(3).child(0).text()) && (toastLog("专项答题开始"), do_zhuanxiang(), jifen_list =
       refind_jifen());
   true == tiaozhan && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["挑战"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["挑战"]).child(4).text()) && (toastLog("挑战答题开始"), do_tiaozhan(), jifen_list = refind_jifen());
-  true == sanren && ("old" == jifen_flag && "已完成" != jifen_list.child(jifen_map["三人"]).child(3).text() || "new" == jifen_flag && "已完成" != jifen_list.child(jifen_map["三人"]).child(4).text()) && (toastLog("太空三人行开始"), do_sanren(), jifen_list = refind_jifen());
   if (ocr_test()) {
       if (true == siren && ("old" == jifen_flag && 3 >= parseInt(jifen_list.child(jifen_map["四人"]).child(2).text().match(/\d+/)[0]) || "new" == jifen_flag && 3 >= parseInt(jifen_list.child(jifen_map["四人"]).child(3).child(0).text()))) {
           toastLog("四人赛开始");
@@ -2589,8 +2539,8 @@ function main(userinfo){
 /*******************主程序部分*******************/
 /********定义全局变量*********/
 var jifen_list, meizhou_dao, zhuanxiang_dao, dingyue_dao, storage_user, name, jinri, zongfen;
-var jifen_map = {"评论":11,"视频":2,"文章":1,"每日":4,"每周":14,"专项":5,"挑战":6,"四人":7,"三人":8,"双人":9,
-                "订阅":10,"本地":12},
+var jifen_map = {"评论":10,"视频":2,"文章":1,"每日":4,"专项":5,"挑战":6,"四人":7,"双人":8,
+                "订阅":9,"本地":11},
     jifen_flag = "old";
 // 分割账号
 var noverify_thread = noverify();
